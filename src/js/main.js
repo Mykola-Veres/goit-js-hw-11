@@ -2,8 +2,8 @@ import NewApiQuery from "./axiosQuveryServise";
 import card from "../templates/card";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
-// import SimpleLightbox from "simplelightbox";
-// import 'simplelightbox/dist/simple-lightbox.min.css';
+import SimpleLightbox from "simplelightbox";
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const inputUserEl = document.querySelector("#search-form");
 inputUserEl.addEventListener("submit", handlerInrutUser);
@@ -28,10 +28,17 @@ function handlerInrutUser(event) {
 }
 function totalPage(totalHits) {
   totalP = Number(totalHits/newApiQuery.page);
+  if(totalHits)
+  {Notify.info(`Hooray! We found ${totalHits} images.`)}  
 }
 function marcupImage({hits}) { 
   console.log(hits)
-  galleryUserEl.insertAdjacentHTML("beforeend", card(hits));  
+  galleryUserEl.insertAdjacentHTML("beforeend", card(hits));
+  const gallery = new SimpleLightbox('.gallery a', {
+    captionDelay: 250,
+    captionsData: 'alt',
+  });
+  gallery.refresh();
 }
 function clearImages() {
   galleryUserEl.innerHTML = "";
