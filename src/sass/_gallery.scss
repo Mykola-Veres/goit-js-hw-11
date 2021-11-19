@@ -1,0 +1,110 @@
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;  
+}
+.link {
+  text-decoration: none;
+}
+.gallery {
+  padding-top: 70px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(100px, 1fr));
+  // grid-template-rows: repeat(10, 20vw);
+  grid-gap: 18px;
+  background-color: antiquewhite;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-wrap: wrap;
+  // margin-left: -30px;
+  // margin-top: -30px;
+  // overflow: hidden;
+  // object-fit: cover;
+  // height: 250px;
+
+}
+.photo-card {  
+  // flex-basis: calc(100% / 4 - 30px);
+  // margin-left: 30px;
+  // margin-top: 30px;   
+  // justify-content: center;
+  // align-items: center;
+  // width: 100%;
+  height: 320px;
+  overflow: hidden;
+  // position: relative;
+  // width: 100%;
+  // height: 100%;
+
+}
+.gallery__image{
+  object-fit: cover;
+  width: 100%;
+  height: 70%;
+}
+.info {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;  
+  border-radius: 0px 0px 4px 4px;
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.load-more {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  background-color: blue;
+  color: #ffffff;
+  width: 150px;
+  height: 40px;
+  border-radius: 6px;
+  border-color: transparent;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.load-more.is-hidden {
+  display: none;  
+}
+.info-item{
+  text-align: center;  
+  display: flex;
+  flex-direction: column;
+}
+
+.search-form {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(111, 0, 255);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
+}
+input{
+  width: 300px;
+  height: 40px;
+  border-radius: 8px;
+  border-color: #ffffff;
+}
+.search-form__btn {
+  background-color: blue;
+  height: 40px;
+  border-radius: 8px;
+  color: #ffffff;
+  margin-left: 10px;
+}
