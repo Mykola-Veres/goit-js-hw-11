@@ -4,6 +4,8 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
 import SimpleLightbox from "simplelightbox";
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import { scrollTo } from "./totalHits";
+// import scrollTo from "./totalHits";
 
 const inputUserEl = document.querySelector("#search-form");
 inputUserEl.addEventListener("submit", handlerInrutUser);
@@ -22,7 +24,8 @@ function handlerInrutUser(event) {
   newApiQuery.getImg().then(data => {marcupImage(data);
   if(data.hits.length === 0)
   {return Notify.failure("Sorry, there are no images matching your search query. Please try again.")}
-  btnLoadMore.classList.remove("is-hidden");    
+  btnLoadMore.classList.remove("is-hidden");
+  scrollTo(galleryUserEl);    
   return data.totalHits}).then(totalPage).catch(console.error());
   newApiQuery.resetPage();
 }
@@ -36,7 +39,7 @@ function marcupImage({hits}) {
   galleryUserEl.insertAdjacentHTML("beforeend", card(hits));
   const gallery = new SimpleLightbox('.gallery a', {
     captionDelay: 250,
-    captionsData: 'alt',
+    // captionsData: 'alt',
   });
   gallery.refresh();
 }
