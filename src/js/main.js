@@ -4,8 +4,9 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
 import SimpleLightbox from "simplelightbox";
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import { scrollTo } from "./totalHits";
+import { scrollTo } from "./scrollTo";
 // import scrollTo from "./totalHits";
+import { totalPage } from "./totalPage"
 
 const inputUserEl = document.querySelector("#search-form");
 inputUserEl.addEventListener("submit", handlerInrutUser);
@@ -13,7 +14,7 @@ const galleryUserEl = document.querySelector(".gallery");
 const btnLoadMore = document.querySelector(".load-more");
 btnLoadMore.addEventListener("click", handlerLoadMore);
 btnLoadMore.classList.add("is-hidden");
-let totalP = 1;
+
 const newApiQuery = new NewApiQuery();
 
 function handlerInrutUser(event) {
@@ -29,11 +30,12 @@ function handlerInrutUser(event) {
   return data.totalHits}).then(totalPage).catch(console.error());
   newApiQuery.resetPage();
 }
-function totalPage(totalHits) {
-  totalP = Number(totalHits/newApiQuery.page);
-  if(totalHits)
-  {Notify.info(`Hooray! We found ${totalHits} images.`)}  
-}
+// totalPage(totalHits, newApiQuery.page);
+// function totalPage(totalHits) {
+//   totalP = Number(totalHits/newApiQuery.page);
+//   if(totalHits)
+//   {Notify.info(`Hooray! We found ${totalHits} images.`)}  
+// }
 function marcupImage({hits}) { 
   console.log(hits)
   galleryUserEl.insertAdjacentHTML("beforeend", card(hits));
